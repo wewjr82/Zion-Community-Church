@@ -21,13 +21,24 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p><%= message %></p>
-
+    <h1>Items</h1>
     <ul>
-      <% items.forEach(function(item) { %>
-      <li><%= item %></li>
-      <% }); %>
+        <% items.forEach(item => { %>
+            <li><%= item.name %> - <%= item.description %>
+                <form action="/delete/<%= item.id %>" method="POST">
+                    <button>Delete</button>
+                </form>
+                <a href="/edit/<%= item.id %>">Edit</a>
+            </li>
+        <% }) %>
     </ul>
+    <h2>Add New Item</h2>
+    <form action="/create" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+        <button type="submit">Add</button>
+    </form>
   </body>
 </html>

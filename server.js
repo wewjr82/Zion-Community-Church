@@ -21,18 +21,75 @@ app.use(express.json());
 // Define routes and CRUD operations here
 
 // Test route to render a simple EJS template
-app.get('/test', (req, res) => {
-  // Sample data to pass to the EJS template
-  const data = {
-    title: 'Test Page',
-    message: 'This is a test page rendered with EJS!',
-    items: ['item1', 'item2', 'item3']
-  };
-  
-  // Render the EJS template and pass data to it
-  res.render('test', data);
+// Routes
+app.get("/", (req, res) => {
+  pool
+    .query("SELECT * FROM your_table")
+    .then((result) => {
+      res.render("index", { items: result.rows, title: "CRUD App" });
+    })
+    .catch((error) => res.status(500).send("Internal Server Error"));
 });
 
+app.post("/create", (req, res) => {
+  const { name, description } = req.body;
+  pool
+    .query("INSERT INTO your_table (name, description) VALUES ($1, $2)", [
+      name,
+      description,
+    ])
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((error) => {
+      console.error("Error executing query", error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+
+app.get("/edit/:id", (req, res) => {
+  const id = req.params.id;
+  pool
+    .query("SELECT * FROM your_table WHERE id = $1", [id])
+    .then((result) => {
+      res.render("edit", { item: result.rows[0] });
+    })
+    .catch((error) => {
+      console.error("Error executing query", error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+
+app.post("/update/:id", (req, res) => {
+  const id = req.params.id;
+  const { name, description } = req.body;
+  pool
+    .query("UPDATE your_table SET name = $1, description = $2 WHERE id = $3", [
+      name,
+      description,
+      id,
+    ])
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((error) => {
+      console.error("Error executing query", error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+
+app.post("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  pool
+    .query("DELETE FROM your_table WHERE id = $1", [id])
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((error) => {
+      console.error("Error executing query", error);
+      res.status(500).send("Internal Server Error");
+    });
+});
 
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
