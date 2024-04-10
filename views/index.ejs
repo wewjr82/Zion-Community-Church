@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -21,24 +21,56 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1>Items</h1>
-    <ul>
-        <% items.forEach(item => { %>
-            <li><%= item.name %> - <%= item.description %>
-                <form action="/delete/<%= item.id %>" method="POST">
-                    <button>Delete</button>
-                </form>
-                <a href="/edit/<%= item.id %>">Edit</a>
-            </li>
-        <% }) %>
-    </ul>
-    <h2>Add New Item</h2>
-    <form action="/create" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description">
-        <button type="submit">Add</button>
-    </form>
+    <div class="wrapper">
+      <header>
+        <img src="/img/Boy reading his bible - 1280x854.jpg" alt="" />
+      </header>
+      <main>
+        <h1>Zion Community Church</h1>
+        <p>Terence A. Cutler, Lead Pastor</p>
+        <address>
+          <h2>22 Rip Rap Road, Hampton, VA, United States, 23669</h2>
+          <span>(757) 977-1102</span>
+          <span
+            ><a href="mailto:hampton@zionva.org">hampton@zionva.org</a></span
+          >
+        </address>
+        <p>
+          Join Our Community and Stay Connected! Are you seeking a welcoming
+          church experience in Hampton, Newport News, Yorktown, James City
+          County, or Williamsburg? Look no further! At Zion Community Church,
+          we're dedicated to providing a vibrant and inclusive community where
+          everyone is valued and supported on their spiritual journey. Sign up
+          for our newsletter today to receive updates on upcoming events,
+          inspiring messages, and opportunities to get involved. Together, let's
+          grow in faith and service!
+        </p>
+
+        <h2 id="form_intro">Stay Connected</h2>
+        <div class="container">
+          <img src="/img/images.png" alt="" />
+          <form action="/signup" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required />
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phone_number" name="phone_number" required />
+
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </main>
+
+      <br />
+      <footer>
+        <p>&copy; 2024 Zion Community Church. All rights reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>

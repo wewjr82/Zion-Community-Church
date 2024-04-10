@@ -1,0 +1,199 @@
+/* Box Model Hack */
+* {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  font-size: 160%;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #557758;
+  color: #e7cb54;
+  font-family: "Poppins", sans-serif;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+  flex-basis: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+main {
+  flex-basis: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+/******************************************
+/* INNER STYLES
+/*******************************************/
+header img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bolder;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+main span a {
+  color: #e7cb54;
+  text-decoration: none;
+}
+
+main span a:hover {
+  color: blue;
+}
+
+address {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#form_intro {
+  text-align: center;
+}
+
+address span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.container form label {
+  margin-bottom: 10px;
+}
+
+.container form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.container form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.container form button:hover {
+  background-color: #0056b3;
+}
+
+.container img {
+  max-width: 40%;
+  height: 414px;
+  border-top: 1px solid #ccc;
+  min-width: 100px;
+  
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+form label {
+  margin-bottom: 10px;
+}
+
+form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+form button:hover {
+  background-color: #0056b3;
+} */
+
+/******************************************
+/* MOBILE STYLES
+/*******************************************/
+@media only screen and (max-width: 768px) {
+  .container img {
+    max-width: 80%; /* Adjust the width for smaller screens */
+    height: auto; /* Let the height adjust proportionally */
+    margin-left: 0; /* Remove left margin for better alignment */
+  }
+}
