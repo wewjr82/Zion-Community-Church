@@ -27,14 +27,44 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-  const { first_name, last_name, email, phone_number } = req.body;
+  const {
+    first_name,
+    last_name,
+    date_of_birth,
+    phone_number,
+    date_joined,
+    title,
+  } = req.body;
   pool
     .query(
-      "INSERT INTO members (first_name, last_name, email, phone_number ) VALUES ($1, $2, $3, $4)",
-      [first_name, last_name, email, phone_number]
+      "INSERT INTO members (first_name, last_name, date_of_birth, phone_number, date_joined, title ) VALUES ($1, $2, $3, $4, $5, $6)",
+      [first_name, last_name, date_of_birth, phone_number, date_joined, title]
     )
     .then(() => {
-      console.log("Info has been added:", first_name, last_name);
+      console.log("New member has been added:", first_name, last_name);
+      res.redirect("/members");
+    })
+    .catch((error) => {
+      console.error("Error executing query", error);
+      res.status(500).send("Internal Server Error");
+    });
+});
+
+app.get("/members", (req, res) => {
+  pool
+    .query("SELECT * FROM members")
+    .then((result) => {
+      res.render("members", { members: result.rows });
+    })
+    .catch((error) => res.status(500).send("Internal Server Error"));
+});
+
+app.post("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  pool
+    .query("DELETE FROM members WHERE id = $1", [id])
+    .then(() => {
+      console.log("Member has been deleted");
       res.redirect("/");
     })
     .catch((error) => {

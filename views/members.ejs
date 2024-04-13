@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/members_style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Members Page</title>
+  </head>
+  <body>
+    <header>
+      <h1>Members of Zion Community Church</h1>
+      <br />
+
+      <a href="/">HOME</a>
+    </header>
+
+    <main>
+      <div class="spreadsheet">
+        <div class="header">
+          <div class="label">Name</div>
+          <div class="label">D.O.B.</div>
+          <div class="label">Phone</div>
+          <div class="label">Joined</div>
+          <div class="label">Title</div>
+          <div class="label">Edit / Delete</div>
+        </div>
+        <ul class="member-list">
+          <% members.reverse().forEach((member) => { %>
+          <li class="member-item">
+            <div><%= member.first_name %> <%= member.last_name %></div>
+            <div>
+              <%= new Date(member.date_of_birth).toLocaleDateString() %>
+            </div>
+            <div><%= member.phone_number %></div>
+            <div><%= new Date(member.date_joined).toLocaleDateString() %></div>
+            <div><%= member.title ? member.title : "No Title Available" %></div>
+
+            <div>
+              <form action="/delete/<%= member.id %>" method="POST">
+                <!-- Replace the button with the font awesome minus icon -->
+                <button type="submit" class="delete-btn">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </form>
+            </div>
+          </li>
+
+          <% }); %>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <div id="copyright" align="center">&copy; 2024 - 2024 William White</div>
+      <script>
+        (function () {
+          let cpr = document.getElementById("copyright");
+          cpr.innerHTML =
+            "&copy; 2024 - " +
+            new Date().getFullYear() +
+            " Phyllis Hicks - All Rights Reserved.";
+        })();
+      </script>
+    </footer>
+  </body>
+</html>

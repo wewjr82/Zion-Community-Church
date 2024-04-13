@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
     <title><%= title %></title>
@@ -23,32 +23,36 @@
   <body>
     <div class="wrapper">
       <header>
-        <img src="/img/Boy reading his bible - 1280x854.jpg" alt="" />
+        <div id="logo">
+          <img src="/img/bgrm.png" alt="logo" />
+        </div>
+        <a href="/members">MEMBERS</a>
       </header>
+
       <main>
-        <h1>Zion Community Church</h1>
-        <p>Terence A. Cutler, Lead Pastor</p>
+        <h1 id="main_heading">Zion Community Church</h1>
+        <p id="pastor">Terence A. Cutler, Lead Pastor</p>
         <address>
-          <h2>22 Rip Rap Road, Hampton, VA, United States, 23669</h2>
-          <span>(757) 977-1102</span>
-          <span
+          <h2 id="address_heading">
+            22 Rip Rap Road, Hampton, VA, United States, 23669
+          </h2>
+          <span id="phone_number">(757) 977-1102</span>
+          <span id="email"
             ><a href="mailto:hampton@zionva.org">hampton@zionva.org</a></span
           >
         </address>
-        <p>
-          Join Our Community and Stay Connected! Are you seeking a welcoming
-          church experience in Hampton, Newport News, Yorktown, James City
-          County, or Williamsburg? Look no further! At Zion Community Church,
-          we're dedicated to providing a vibrant and inclusive community where
-          everyone is valued and supported on their spiritual journey. Sign up
-          for our newsletter today to receive updates on upcoming events,
-          inspiring messages, and opportunities to get involved. Together, let's
-          grow in faith and service!
-        </p>
 
-        <h2 id="form_intro">Stay Connected</h2>
+        <article>
+          <p id="main_info">The perfect church for those who aren't</p>
+        </article>
+
+        <h2 id="form_intro">Member Sign-up</h2>
         <div class="container">
-          <img src="/img/images.png" alt="" />
+          <img
+            src="/img/429588816_2024869247907897_9197716235557212796_n.jpg"
+            alt=""
+          />
+
           <form action="/signup" method="POST">
             <label for="firstName">First Name:</label>
             <input type="text" id="first_name" name="first_name" required />
@@ -56,11 +60,22 @@
             <label for="lastName">Last Name:</label>
             <input type="text" id="last_name" name="last_name" required />
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <label for="date_of_birth">D.O.B.:</label>
+            <input
+              type="date"
+              id="date_of_birth"
+              name="date_of_birth"
+              required
+            />
 
             <label for="phoneNumber">Phone Number:</label>
             <input type="tel" id="phone_number" name="phone_number" required />
+
+            <label for="date_joined">Date Joined:</label>
+            <input type="date" id="date_joined" name="date_joined" required />
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" />
 
             <button type="submit">Sign Up</button>
           </form>
@@ -69,8 +84,20 @@
 
       <br />
       <footer>
-        <p>&copy; 2024 Zion Community Church. All rights reserved.</p>
+        <div id="copyright" align="center">
+          &copy; 2024 - 2024 William White
+        </div>
+        <script>
+          (function () {
+            let cpr = document.getElementById("copyright");
+            cpr.innerHTML =
+              "&copy; 2024 - " +
+              new Date().getFullYear() +
+              " Phyllis Hicks - All Rights Reserved.";
+          })();
+        </script>
       </footer>
     </div>
+    <script src="/js/main.js"></script>
   </body>
 </html>
