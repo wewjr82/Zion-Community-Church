@@ -76,6 +76,6 @@ app.post("/delete/:id", (req, res) => {
     });
 });
 
-app.listen(port, () => {
+app.listen(port || port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
