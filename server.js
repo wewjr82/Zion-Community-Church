@@ -3,7 +3,7 @@ const { Pool } = require("pg");
 require("dotenv").config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const cport = parseInt(process.env.DB_PORT, 10);
 
@@ -76,6 +76,6 @@ app.post("/delete/:id", (req, res) => {
     });
 });
 
-app.listen(port || port, () => {
+app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
