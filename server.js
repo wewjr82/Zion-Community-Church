@@ -1,20 +1,20 @@
 const express = require("express");
-const pool = require('./DBConfig');
+const { Pool } = require("pg");
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// const cport = parseInt(process.env.DB_PORT, 10);
+const cport = parseInt(process.env.DB_PORT, 10);
 
 
-// pool = new Pool({
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASSWORD,
-//   port: cport,
-// });
+pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: cport,
+});
 
 
 app.set("view engine", "ejs");
