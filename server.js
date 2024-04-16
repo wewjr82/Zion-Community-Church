@@ -4,24 +4,24 @@ require("dotenv").config();
 
 const app = express();
 
-// const cport = parseInt(process.env.DB_PORT, 10);
+const cport = parseInt(process.env.DB_PORT, 10);
 
-// pool = new Pool({
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASSWORD,
-//   port: cport,
-// });
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_PRIVATE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: cport,
 });
 
-console.log(process.env.DATABASE_URL);
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_PRIVATE_URL,
+//   ssl: {
+//     rejectUnauthorized: false,
+//   },
+// });
+
+// console.log(process.env.DATABASE_URL);
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
