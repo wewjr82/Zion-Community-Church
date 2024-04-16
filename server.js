@@ -1,25 +1,19 @@
 const express = require("express");
-const { Pool } = require("pg");
+const pool = require("./db");
 require("dotenv").config();
 
 const app = express();
 
-const cport = parseInt(process.env.DB_PORT, 10);
+// const cport = parseInt(process.env.DB_PORT, 10);
 
-pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: cport,
-});
-
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_PRIVATE_URL,
-//   ssl: {
-//     rejectUnauthorized: false,
-//   },
+// pool = new Pool({
+//   user: process.env.DB_USER,
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_NAME,
+//   password: process.env.DB_PASSWORD,
+//   port: cport,
 // });
+
 
 // console.log(process.env.DATABASE_URL);
 
@@ -28,9 +22,9 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Define routes and CRUD operations here
 
-// Test route to render a simple EJS template
+
+// Define routes and CRUD operations here
 // Routes
 app.get("/", (req, res) => {
   res.render("index", { title: "Zion Community Church" });
