@@ -22,6 +22,8 @@ const pool = new Pool({
   },
 });
 
+console.log(process.env.DATABASE_URL);
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
