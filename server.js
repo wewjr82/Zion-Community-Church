@@ -1,5 +1,6 @@
 const express = require("express");
 const pool = require("./db");
+// const { Pool } = require("pg");
 require("dotenv").config();
 
 const app = express();
@@ -62,6 +63,37 @@ app.get("/members", (req, res, next) => {
     res.render("members", { members: result.rows });
   });
 });
+
+
+app.get("/edit/:id", (req, res, next) => {
+  const id = req.params.id;
+  pool.query("SELECT * FROM members WHERE id = $1", [id], (error, result) => {
+    if (error) {
+      console.error("Error executing query", error);
+      return res.status(500).send("Internal Server Error");
+    }
+    res.render("edit", { member: result.rows[0] });
+  });
+});
+
+
+app.post("/update/:id", (req, res, next) => {
+  const id = req.params.id;
+  const { first_name, last_name, date_of_birth, phone_number, date_joined, title } = req.body;
+  pool.query(
+    "UPDATE members SET first_name = $1, last_name = $2, date_of_birth = $3, phone_number = $4, date_joined = $5, title = $6 WHERE id = $7",
+    [first_name, last_name, date_of_birth, phone_number, date_joined, title, id],
+    (error) => {
+      if (error) {
+        console.error("Error executing query", error);
+        return res.status(500).send("Internal Server Error");
+      }
+      console.log("Member has been updated");
+      res.redirect("/members");
+    }
+  );
+});
+
 
 app.post("/delete/:id", (req, res, next) => {
   const id = req.params.id;

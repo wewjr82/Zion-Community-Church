@@ -49,9 +49,16 @@
             <div><%= new Date(member.date_joined).toLocaleDateString() %></div>
             <div><%= member.title ? member.title : "No Title Available" %></div>
 
-            <div>
+            <div id="update_btns">
+              <form action="/edit/<%= member.id %>" method="GET">
+                <!-- edit -->
+                <button type="submit" class="edit-btn">
+                  <i class="fas fa-pen"></i>
+                </button>
+              </form>
+
               <form action="/delete/<%= member.id %>" method="POST">
-                <!-- Replace the button with the font awesome minus icon -->
+                <!-- delete -->
                 <button type="submit" class="delete-btn">
                   <i class="fas fa-minus"></i>
                 </button>

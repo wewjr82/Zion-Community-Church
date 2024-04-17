@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/edit.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Edit Member</title>
+  </head>
+  <body>
+    <h2>Edit Member</h2>
+    
+    <div class="edit-form">
+      <img src="/img/images.png" />
+
+      <form class="overlay" action="/update/<%= member.id %>" method="POST">
+        <!-- Populate form fields with existing member data -->
+        <label for="first_name">First Name:</label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          value="<%= member.first_name %>"
+          required
+        />
+
+        <label for="last_name">Last Name:</label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          value="<%= member.last_name %>"
+          required
+        />
+
+        <label for="date_of_birth">D.O.B.:</label>
+        <input
+          type="date"
+          id="date_of_birth"
+          name="date_of_birth"
+          value="<%= member.date_of_birth %>"
+          required
+        />
+
+        <label for="phone_number">Phone Number:</label>
+        <input
+          type="tel"
+          id="phone_number"
+          name="phone_number"
+          value="<%= member.phone_number %>"
+          required
+        />
+
+        <label for="date_joined">Date Joined:</label>
+        <input
+          type="date"
+          id="date_joined"
+          name="date_joined"
+          value="<%= member.date_joined %>"
+          required
+        />
+
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="<%= member.title %>"
+        />
+        <br />
+        <button type="submit">Update</button>
+      </form>
+    </div>
+    <br><br>
+    <footer>
+        <div id="copyright" align="center">
+          &copy; 2024 - 2024 William White
+        </div>
+        <script>
+          (function () {
+            let cpr = document.getElementById("copyright");
+            cpr.innerHTML =
+              "&copy; 2024 - " +
+              new Date().getFullYear() +
+              " Phyllis Hicks - All Rights Reserved.";
+          })();
+        </script>
+      </footer>
+  </body>
+</html>
