@@ -77,7 +77,7 @@ app.get("/edit/:id", (req, res, next) => {
 });
 
 
-app.post("/update/:id", (req, res, next) => {
+app.put("/update/:id", (req, res, next) => {
   const id = req.params.id;
   const { first_name, last_name, date_of_birth, phone_number, date_joined, title } = req.body;
   pool.query(
