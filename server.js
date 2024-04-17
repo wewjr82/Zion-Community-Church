@@ -15,15 +15,12 @@ const app = express();
 //   port: cport,
 // });
 
-
 // console.log(process.env.DATABASE_URL);
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
 
 // Define routes and CRUD operations here
 // Routes
@@ -64,7 +61,6 @@ app.get("/members", (req, res, next) => {
   });
 });
 
-
 app.get("/edit/:id", (req, res, next) => {
   const id = req.params.id;
   pool.query("SELECT * FROM members WHERE id = $1", [id], (error, result) => {
@@ -76,13 +72,27 @@ app.get("/edit/:id", (req, res, next) => {
   });
 });
 
-
-app.put("/update/:id", (req, res, next) => {
+app.post("/update/:id", (req, res, next) => {
   const id = req.params.id;
-  const { first_name, last_name, date_of_birth, phone_number, date_joined, title } = req.body;
+  const {
+    first_name,
+    last_name,
+    date_of_birth,
+    phone_number,
+    date_joined,
+    title,
+  } = req.body;
   pool.query(
     "UPDATE members SET first_name = $1, last_name = $2, date_of_birth = $3, phone_number = $4, date_joined = $5, title = $6 WHERE id = $7",
-    [first_name, last_name, date_of_birth, phone_number, date_joined, title, id],
+    [
+      first_name,
+      last_name,
+      date_of_birth,
+      phone_number,
+      date_joined,
+      title,
+      id,
+    ],
     (error) => {
       if (error) {
         console.error("Error executing query", error);
@@ -93,7 +103,6 @@ app.put("/update/:id", (req, res, next) => {
     }
   );
 });
-
 
 app.post("/delete/:id", (req, res, next) => {
   const id = req.params.id;
