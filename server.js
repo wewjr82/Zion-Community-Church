@@ -28,6 +28,10 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Zion Community Church" });
 });
 
+app.get("/visitors", (req, res) => {
+  res.render("visitors");
+});
+
 app.post("/signup", (req, res, next) => {
   const {
     first_name,
