@@ -2,7 +2,7 @@
 <p>This is a website developed to assist the pastor and assistant pastor of a local church in keeping records of all members and visitors. It allows members to sign up and be part of the system, while providing functionalities for the pastors to edit, update, and delete records. Additionally, it includes a spreadsheet feature for keeping track of all visitors.</p>
 
 Link to project: https://zion-community-church-production.up.railway.app/
-![buzz](https://github.com/wewjr82/triathalonbuzz/assets/68568420/b54a9e1a-2b19-4084-9a33-da88227a8170)
+![buzz](screencapture-zion-community-church-production-up-railway-app-2024-04-18-22_35_40)
 
 <h2>How It's Made:</h2>
 <p>Tech used: EJS, CSS3, JavaScript, Node.js, Express, PostgreSQL</p>
