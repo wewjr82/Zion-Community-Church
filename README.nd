@@ -1,26 +1,13 @@
-# Install
-
-`npm install`
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key = value`
-  - DB_HOST='????'
-  - DB_PORT='????'
-  - DB_USER='????'
-  - DB_PASSWORD='????'
-  - DB_NAME='????'
-  
-  
+Zion Community Church
+This is a website developed to assist the pastor and assistant pastor of a local church in keeping records of all members and visitors. It allows members to sign up and be part of the system, while providing functionalities for the pastors to edit, update, and delete records. Additionally, it includes a spreadsheet feature for keeping track of all visitors.
 
 
+Link to project: 
 
+How It's Made:
+Tech used: EJS, CSS3, JavaScript, Node.js, Express, PostgreSQL
 
+Zion Community Church was developed using EJS for templating, CSS3 for styling, and JavaScript for client-side interactions. The backend was built with Node.js and Express, utilizing PostgreSQL as the database management system. This project provided extensive learning opportunities regarding PostgreSQL, including database setup, schema design, and querying.
 
----
-
-# Run
-
-`npm start`
+Lessons Learned:
+Building Zion Community Church significantly enhanced my understanding of PostgreSQL and its integration within web applications. Working with PostgreSQL involved learning database management, schema design, and executing complex queries to efficiently manage church records. This project strengthened my backend development skills and underscored the importance of robust data management in web applications.
