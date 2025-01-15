@@ -33,6 +33,22 @@
     </header>
 
     <main>
+      <!-- Year Filter -->
+      <div class="filter-section">
+        <label for="yearFilter">Filter by Year:</label>
+        <select id="yearFilter">
+          <option value="all">All</option>
+          <% const currentYear = new Date().getFullYear(); const rangeYears =
+          Array.from({ length: currentYear - 2020 + 1 }, (_, i) => 2020 + i);
+          const uniqueYears = new Set([...rangeYears, ...members.map(member =>
+          new Date(member.date_joined).getFullYear())]); const sortedYears =
+          [...uniqueYears].sort((a, b) => b - a); sortedYears.forEach(year => {
+          %>
+          <option value="<%= year %>"><%= year %></option>
+          <% }); %>
+        </select>
+      </div>
+
       <div class="spreadsheet">
         <div class="header">
           <div class="label">Name</div>
@@ -42,9 +58,12 @@
           <div class="label">Title</div>
           <div class="label">Edit / Delete</div>
         </div>
-        <ul class="member-list">
+        <ul class="member-list" id="memberList">
           <% members.reverse().forEach((member) => { %>
-          <li class="member-item">
+          <li
+            class="member-item"
+            data-year="<%= new Date(member.date_joined).getFullYear() %>"
+          >
             <div><%= member.first_name %> <%= member.last_name %></div>
             <div>
               <%= new Date(member.date_of_birth).toLocaleDateString() %>
@@ -69,17 +88,38 @@
               </form>
             </div>
           </li>
-
           <% }); %>
         </ul>
       </div>
     </main>
     <footer>
       <div id="copyright" align="center">
-        &copy; 2024 -
+        &copy; 2025 -
         <?php echo date("Y"); ?>
         Phyllis Hicks - All Rights Reserved.
       </div>
     </footer>
+
+    <script>
+      // JavaScript to filter members by year
+      const yearFilter = document.getElementById("yearFilter");
+      const memberList = document.getElementById("memberList");
+      const memberItems = Array.from(
+        memberList.getElementsByClassName("member-item")
+      );
+
+      yearFilter.addEventListener("change", () => {
+        const selectedYear = yearFilter.value;
+
+        memberItems.forEach((item) => {
+          const memberYear = item.getAttribute("data-year");
+          if (selectedYear === "all" || memberYear === selectedYear) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
