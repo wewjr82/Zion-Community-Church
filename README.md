@@ -1,5 +1,5 @@
 <h1>Zion Community Church</h1>
-<p>This is a website developed to assist the pastor and assistant pastor of a local church in keeping records of all members and visitors. It allows members to sign up and be part of the system, while providing functionalities for the pastors to edit, update, and delete records. Additionally, it includes a spreadsheet feature for keeping track of all visitors.</p>
+<p>This is a website developed to assist the pastor and assistant pastor of a local church in keeping records of all members and visitors. It allows members to sign up and be part of the system, while providing functionalities for the pastors to edit, update, and delete records. Additionally, it includes a spreadsheet feature for keeping track of all visitors and can also filter members by year.</p>
 
 <p>Link to project: <a href="https://zion-community-church-production.up.railway.app/">Zion Community Church</a></p>
 
