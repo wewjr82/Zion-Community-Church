@@ -3,7 +3,9 @@
 
 <p>Link to project: <a href="https://zion-community-church-production.up.railway.app/">Zion Community Church</a></p>
 
-![port-logo](https://github.com/user-attachments/assets/367473cb-5978-455b-b3f7-ce4382fee41f)
+
+![screencapture-zion-community-church-production-up-railway-app-2025-02-19-20_05_31](https://github.com/user-attachments/assets/a985d2d6-8ca4-4d02-85ed-35e0722fff77)
+
 
 <h2>How It's Made:</h2>
 <p>Tech used: EJS, CSS3, JavaScript, Node.js, Express, PostgreSQL</p>
