@@ -27,7 +27,10 @@
         <div id="logo">
           <img src="/img/bg-preview.png" alt="logo" />
         </div>
-        <nav>
+        <button class="hamburger" id="hamburger-menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav-links">
           <a href="/members">MEMBERS</a>
           <a href="/visitors">VISITORS</a>
         </nav>
@@ -57,7 +60,7 @@
             src="/img/429588816_2024869247907897_9197716235557212796_n.jpg"
             alt=""
           />
-
+          <!--FORM-->
           <form action="/signup" method="POST">
             <label for="firstName">First Name:</label>
             <input type="text" id="first_name" name="first_name" required />
@@ -86,15 +89,16 @@
           </form>
         </div>
       </main>
-
+      <!--END OF FORM-->
       <br />
+      <!--FOOTER-->
       <footer>
         <div id="copyright" align="center">
-          &copy; 2025 -
-          <?php echo date("Y"); ?>
+          &copy; <span id="date"></span>.
           Phyllis Hicks - All Rights Reserved.
         </div>
       </footer>
+      <!--END OF FOOTER-->
     </div>
     <script src="/js/main.js"></script>
   </body>
