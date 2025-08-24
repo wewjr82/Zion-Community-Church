@@ -1,4 +1,4 @@
-// const { Pool } = require("pg");
+const { Pool } = require("pg");
 
 // The secret connection string you copied earlier
 const connectionString =
